@@ -15,7 +15,7 @@ app.disable("x-powered-by");
 
 app.set("Config.StorefrontApi", StorefrontApi);
 
-app.use(compression);
+app.use(compression());
 app.use(expressjsHandler);
 
 app.listen(port, () => {
