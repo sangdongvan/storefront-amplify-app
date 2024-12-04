@@ -16,6 +16,7 @@ npx rslib build
 cp -r dist .amplify-hosting/compute/
 mv .amplify-hosting/compute/dist .amplify-hosting/compute/default
 
+echo '⚙ Install runtime dependencies'
 # Install runtime node_modules, keep runtime small, only express.js for now.
 # Note that package.json with type module is required to load es module.
 cp src-amplify/package.json .amplify-hosting/compute/default/
