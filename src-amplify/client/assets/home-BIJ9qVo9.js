@@ -1,0 +1,1 @@
+import{w as i}from"./with-props-BXIheXE1.js";import{j as o,L as s}from"./chunk-7R3XDUXW-qj_06gFn.js";const t=i(function(){return o.jsxs("p",{id:"index-page",children:["This is a demo for Remix.",o.jsx("br",{}),o.jsx(s,{to:"/login",children:"Go to login"})]})});export{t as default};
