@@ -1,0 +1,1 @@
+import{w as e}from"./with-props-CL8xjY9b.js";import{j as r}from"./chunk-7R3XDUXW-FmQ3R6bm.js";const o=e(function(){return r.jsxs("p",{id:"index-page",children:["This is a demo for Remix.",r.jsx("br",{}),"Check out ",r.jsx("a",{href:"https://remix.run",children:"the docs at remix.run"}),"."]})});export{o as default};

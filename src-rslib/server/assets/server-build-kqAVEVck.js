@@ -1,22 +1,40 @@
-import { g as getDefaultExportFromCjs, d as decode, v as verify, s as sign, J as JsonWebTokenError_1, N as NotBeforeError_1, T as TokenExpiredError_1, a as axios, p as production, b as accessTokenCookie, r as refreshTokenCookie, c as reactExports, e as dist, f as schemas } from "./expressjs-handler-_sWpVKFD.js";
+import { a as axios, g as getDefaultExportFromCjs, d as decode, v as verify, s as sign, J as JsonWebTokenError_1, N as NotBeforeError_1, T as TokenExpiredError_1, p as production, b as accessTokenCookie, r as refreshTokenCookie, c as reactExports, e as dist } from "./expressjs-handler-B3UPTGQP.js";
 import { PassThrough } from "node:stream";
 import stream from "stream";
 import require$$1 from "util";
 import "fs";
 import "path";
-import "tty";
-import "os";
-import "buffer";
-import "crypto";
-import "zlib";
 import "http";
 import "https";
-import "events";
 import "url";
 import "assert";
+import "tty";
 import "net";
-async function getContacts(ctx, query, token) {
-  const findRes = await ctx.api.get("/api/Contact/Find", {
+import "zlib";
+import "events";
+import "buffer";
+import "crypto";
+import "os";
+const {
+  Axios,
+  AxiosError,
+  CanceledError,
+  isCancel,
+  CancelToken,
+  VERSION,
+  all,
+  Cancel,
+  isAxiosError,
+  spread,
+  toFormData,
+  AxiosHeaders,
+  HttpStatusCode,
+  formToJSON,
+  getAdapter,
+  mergeConfig
+} = axios;
+async function getContacts(api, query, token) {
+  const findRes = await api.get("/api/Contact/Find", {
     ...query === null ? {} : { queries: { Q: query } },
     headers: {
       Authorization: "Bearer " + token
@@ -24,20 +42,16 @@ async function getContacts(ctx, query, token) {
   });
   return findRes.contacts;
 }
-async function createEmptyContact(ctx, token) {
-  const createEmptyRes = await ctx.api.post(
-    "/api/Contact/CreateEmpty",
-    void 0,
-    {
-      headers: {
-        Authorization: "Bearer " + token
-      }
+async function createEmptyContact(api, token) {
+  const createEmptyRes = await api.post("/api/Contact/CreateEmpty", void 0, {
+    headers: {
+      Authorization: "Bearer " + token
     }
-  );
+  });
   return createEmptyRes;
 }
-async function getContact(ctx, id, token) {
-  const findOneRes = await ctx.api.get("/api/Contact/FindOne", {
+async function getContact(api, id, token) {
+  const findOneRes = await api.get("/api/Contact/FindOne", {
     queries: { Id: id },
     headers: {
       Authorization: "Bearer " + token
@@ -45,18 +59,8 @@ async function getContact(ctx, id, token) {
   });
   return findOneRes;
 }
-async function updateContact(ctx, request, token) {
-  const updateOneRes = await ctx.api.post("/api/Contact/UpdateOne", request, {
-    headers: {
-      Authorization: "Bearer " + token
-    }
-  });
-  if (!updateOneRes) {
-    throw new Error(`No contact found for ${request.id}`);
-  }
-}
-async function markAsFavoriteContact(ctx, id, favorite, token) {
-  await ctx.api.post(
+async function markAsFavoriteContact(api, id, favorite, token) {
+  await api.post(
     "/api/Contact/MarkAsFavorite",
     {
       id,
@@ -69,8 +73,8 @@ async function markAsFavoriteContact(ctx, id, favorite, token) {
     }
   );
 }
-async function deleteContact(ctx, id, token) {
-  await ctx.api.post(
+async function deleteContact(api, id, token) {
+  await api.post(
     "/api/Contact/DeleteOne",
     {
       id
@@ -104,24 +108,6 @@ var jsonwebtoken = {
   TokenExpiredError: TokenExpiredError_1
 };
 const jwt = /* @__PURE__ */ getDefaultExportFromCjs(jsonwebtoken);
-const {
-  Axios,
-  AxiosError,
-  CanceledError,
-  isCancel,
-  CancelToken,
-  VERSION,
-  all,
-  Cancel,
-  isAxiosError,
-  spread,
-  toFormData,
-  AxiosHeaders,
-  HttpStatusCode,
-  formToJSON,
-  getAdapter,
-  mergeConfig
-} = axios;
 async function authenticateWithUserCredentials(ctx, request) {
   const form = await request.formData();
   const email = String(form.get("email"));
@@ -15204,7 +15190,7 @@ const route0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: root,
   links
 }, Symbol.toStringTag, { value: "Module" }));
-const headers$1 = {
+const headers$2 = {
   "Cache-Control": "public, max-age=300, s-max-age=3600"
 };
 const home = withComponentProps(function Home() {
@@ -15219,9 +15205,9 @@ const home = withComponentProps(function Home() {
 const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: home,
-  headers: headers$1
+  headers: headers$2
 }, Symbol.toStringTag, { value: "Module" }));
-const action$4 = async ({
+const action$3 = async ({
   context,
   request
 }) => {
@@ -15239,7 +15225,7 @@ const action$4 = async ({
     headers: [["Set-Cookie", await accessTokenCookie.serialize(accessToken)], ["Set-Cookie", await refreshTokenCookie.serialize(refreshToken)]]
   });
 };
-const headers = {
+const headers$1 = {
   "Cache-Control": "public, max-age=300, s-max-age=3600"
 };
 const loader$4 = async ({
@@ -15292,12 +15278,12 @@ const login = withComponentProps(function Screen({
 });
 const route2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  action: action$4,
+  action: action$3,
   default: login,
-  headers,
+  headers: headers$1,
   loader: loader$4
 }, Symbol.toStringTag, { value: "Module" }));
-const action$3 = async ({
+const action$2 = async ({
   context,
   request
 }) => {
@@ -15307,7 +15293,7 @@ const action$3 = async ({
     const {
       accessToken
     } = await authenticateOrGoLogin(context, request);
-    const contact = await createEmptyContact(context, accessToken);
+    const contact = await createEmptyContact(context.api, accessToken);
     return production.redirect(`${contact.id}/edit`);
   }
   if (intent === "LOGOUT") {
@@ -15332,7 +15318,7 @@ const loader$3 = async ({
   } = await authenticateOrGoLogin(context, request);
   const url = new URL(request.url);
   const q = url.searchParams.get("q");
-  const contacts = await getContacts(context, q, accessToken);
+  const contacts = await getContacts(context.api, q, accessToken);
   return {
     contacts,
     q
@@ -15436,7 +15422,7 @@ const layout = withComponentProps(function App2({
 });
 const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  action: action$3,
+  action: action$2,
   default: layout,
   loader: loader$3
 }, Symbol.toStringTag, { value: "Module" }));
@@ -15453,7 +15439,7 @@ const route4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: list
 }, Symbol.toStringTag, { value: "Module" }));
-const action$2 = async ({
+const action$1 = async ({
   context,
   params,
   request
@@ -15463,7 +15449,7 @@ const action$2 = async ({
     accessToken
   } = await authenticateOrGoLogin(context, request);
   const formData = await request.formData();
-  await markAsFavoriteContact(context, params.id, formData.get("favorite") === "true", accessToken);
+  await markAsFavoriteContact(context.api, params.id, formData.get("favorite") === "true", accessToken);
   return {};
 };
 const loader$2 = async ({
@@ -15475,7 +15461,7 @@ const loader$2 = async ({
   const {
     accessToken
   } = await authenticateOrGoLogin(context, request);
-  const contact = await getContact(context, params.id, accessToken);
+  const contact = await getContact(context.api, params.id, accessToken);
   if (!contact) {
     throw new Response("Not Found", {
       status: 404
@@ -15556,38 +15542,31 @@ function Favorite({
 }
 const route5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  action: action$2,
+  action: action$1,
   default: view,
   loader: loader$2
 }, Symbol.toStringTag, { value: "Module" }));
-const action$1 = async ({
-  context,
+const clientContactApi = void 0;
+const schemas = void 0;
+const getAccessToken = void 0;
+const getClientContext = void 0;
+const clientAction = async ({
   request
 }) => {
-  const {
-    accessToken: token,
-    error
-  } = await authenticateOrError(context, request);
-  if (error) {
-    return Response.json({}, {
-      status: 401
-    });
-  }
+  const token = await getAccessToken();
+  const context = await getClientContext();
   const formPayload = Object.fromEntries(await request.formData());
   const updateOneRequest = await schemas.UpdateOneContactRequest.parseAsync(formPayload);
-  await updateContact(context, updateOneRequest, token);
+  await clientContactApi.updateContact(context.api, updateOneRequest, token);
   return production.redirect(`/contacts/${updateOneRequest.id}`);
 };
-const loader$1 = async ({
-  context,
-  request,
+const clientLoader = async ({
   params
 }) => {
   invariant(params.id, "Missing id param");
-  const {
-    accessToken
-  } = await authenticateOrGoLogin(context, request);
-  const contact = await getContact(context, params.id, accessToken);
+  const token = await getAccessToken();
+  const context = await getClientContext();
+  const contact = await clientContactApi.getContact(context.api, params.id, token);
   if (!contact) {
     throw new Response("Not Found", {
       status: 404
@@ -15668,9 +15647,9 @@ const edit = withComponentProps(function EditContact({
 });
 const route6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  action: action$1,
-  default: edit,
-  loader: loader$1
+  clientAction,
+  clientLoader,
+  default: edit
 }, Symbol.toStringTag, { value: "Module" }));
 const action = async ({
   context,
@@ -15681,14 +15660,14 @@ const action = async ({
   const {
     accessToken
   } = await authenticateOrGoLogin(context, request);
-  await deleteContact(context, params.id, accessToken);
+  await deleteContact(context.api, params.id, accessToken);
   return production.redirect("/contacts");
 };
 const route7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action
 }, Symbol.toStringTag, { value: "Module" }));
-const loader = async ({
+const loader$1 = async ({
   context,
   request
 }) => {
@@ -15707,9 +15686,32 @@ const loader = async ({
 };
 const route8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
+  loader: loader$1
+}, Symbol.toStringTag, { value: "Module" }));
+function isAppContext(obj) {
+  const config = obj.config;
+  const api = obj.api;
+  const jwksClient = obj.jwksClient;
+  return config !== void 0 && api !== void 0 && jwksClient !== void 0;
+}
+const headers = {
+  "Cache-Control": "public, max-age=30, s-max-age=3600"
+};
+const loader = async ({
+  context
+}) => {
+  invariant(isAppContext(context));
+  const config = {
+    storefrontApi: context.config.storefrontApi
+  };
+  return Response.json(config);
+};
+const route9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  headers,
   loader
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-Bx9b5GA8.js", "imports": ["/assets/chunk-7R3XDUXW-qj_06gFn.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-Bnmmx2Lc.js", "imports": ["/assets/chunk-7R3XDUXW-qj_06gFn.js", "/assets/with-props-BXIheXE1.js"], "css": [] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home-BIJ9qVo9.js", "imports": ["/assets/with-props-BXIheXE1.js", "/assets/chunk-7R3XDUXW-qj_06gFn.js"], "css": [] }, "routes/login": { "id": "routes/login", "parentId": "root", "path": "login", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/login-CKLYuBa9.js", "imports": ["/assets/with-props-BXIheXE1.js", "/assets/chunk-7R3XDUXW-qj_06gFn.js"], "css": [] }, "routes/contacts/layout": { "id": "routes/contacts/layout", "parentId": "root", "path": "contacts", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/layout-CObvgGic.js", "imports": ["/assets/with-props-BXIheXE1.js", "/assets/chunk-7R3XDUXW-qj_06gFn.js"], "css": [] }, "routes/contacts/list": { "id": "routes/contacts/list", "parentId": "routes/contacts/layout", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/list-VdaUWlQ_.js", "imports": ["/assets/with-props-BXIheXE1.js", "/assets/chunk-7R3XDUXW-qj_06gFn.js"], "css": [] }, "routes/contacts/view": { "id": "routes/contacts/view", "parentId": "routes/contacts/layout", "path": ":id", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/view-BvzU8jKY.js", "imports": ["/assets/with-props-BXIheXE1.js", "/assets/chunk-7R3XDUXW-qj_06gFn.js"], "css": [] }, "routes/contacts/edit": { "id": "routes/contacts/edit", "parentId": "routes/contacts/layout", "path": ":id/edit", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/edit-HkYLw0Zm.js", "imports": ["/assets/with-props-BXIheXE1.js", "/assets/chunk-7R3XDUXW-qj_06gFn.js"], "css": [] }, "routes/contacts/destroy": { "id": "routes/contacts/destroy", "parentId": "routes/contacts/layout", "path": ":id/destroy", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/destroy-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-access-token": { "id": "routes/api/get-access-token", "parentId": "root", "path": "api/get-access-token", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-access-token-l0sNRNKZ.js", "imports": [], "css": [] } }, "url": "/assets/manifest-f6a892d6.js", "version": "f6a892d6" };
+const serverManifest = { "entry": { "module": "/assets/entry.client--K4XpglX.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BGTku7SI.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js", "/assets/with-props-CL8xjY9b.js"], "css": [] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home-CxjFudH7.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/login": { "id": "routes/login", "parentId": "root", "path": "login", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/login-DDbwbo3g.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/layout": { "id": "routes/contacts/layout", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/layout-BvstaCfI.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/list": { "id": "routes/contacts/list", "parentId": "routes/contacts/layout", "path": "contacts", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/list-z8Vb_bDW.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/view": { "id": "routes/contacts/view", "parentId": "routes/contacts/layout", "path": "contacts/:id", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/view-UsEqIIKw.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/edit": { "id": "routes/contacts/edit", "parentId": "routes/contacts/layout", "path": "contacts/:id/edit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": true, "hasClientLoader": true, "hasErrorBoundary": false, "module": "/assets/edit-V7nNNLvn.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/destroy": { "id": "routes/contacts/destroy", "parentId": "routes/contacts/layout", "path": "contacts/:id/destroy", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/destroy-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-access-token.server": { "id": "routes/api/get-access-token.server", "parentId": "root", "path": "api/get-access-token", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-access-token.server-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-app-config.server": { "id": "routes/api/get-app-config.server", "parentId": "root", "path": "api/get-app-config", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-app-config.server-l0sNRNKZ.js", "imports": [], "css": [] } }, "url": "/assets/manifest-afedf313.js", "version": "afedf313" };
 const assetsBuildDirectory = "build/client";
 const basename = "/";
 const future = { "unstable_optimizeDeps": false };
@@ -15744,7 +15746,7 @@ const routes = {
   "routes/contacts/layout": {
     id: "routes/contacts/layout",
     parentId: "root",
-    path: "contacts",
+    path: void 0,
     index: void 0,
     caseSensitive: void 0,
     module: route3
@@ -15752,7 +15754,7 @@ const routes = {
   "routes/contacts/list": {
     id: "routes/contacts/list",
     parentId: "routes/contacts/layout",
-    path: void 0,
+    path: "contacts",
     index: true,
     caseSensitive: void 0,
     module: route4
@@ -15760,7 +15762,7 @@ const routes = {
   "routes/contacts/view": {
     id: "routes/contacts/view",
     parentId: "routes/contacts/layout",
-    path: ":id",
+    path: "contacts/:id",
     index: void 0,
     caseSensitive: void 0,
     module: route5
@@ -15768,7 +15770,7 @@ const routes = {
   "routes/contacts/edit": {
     id: "routes/contacts/edit",
     parentId: "routes/contacts/layout",
-    path: ":id/edit",
+    path: "contacts/:id/edit",
     index: void 0,
     caseSensitive: void 0,
     module: route6
@@ -15776,18 +15778,26 @@ const routes = {
   "routes/contacts/destroy": {
     id: "routes/contacts/destroy",
     parentId: "routes/contacts/layout",
-    path: ":id/destroy",
+    path: "contacts/:id/destroy",
     index: void 0,
     caseSensitive: void 0,
     module: route7
   },
-  "routes/api/get-access-token": {
-    id: "routes/api/get-access-token",
+  "routes/api/get-access-token.server": {
+    id: "routes/api/get-access-token.server",
     parentId: "root",
     path: "api/get-access-token",
     index: void 0,
     caseSensitive: void 0,
     module: route8
+  },
+  "routes/api/get-app-config.server": {
+    id: "routes/api/get-app-config.server",
+    parentId: "root",
+    path: "api/get-app-config",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route9
   }
 };
 export {

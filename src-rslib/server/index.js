@@ -1,19 +1,19 @@
-import { h } from "./assets/expressjs-handler-_sWpVKFD.js";
+import { f } from "./assets/expressjs-handler-B3UPTGQP.js";
 import "fs";
 import "path";
 import "stream";
-import "tty";
 import "util";
-import "os";
-import "buffer";
-import "crypto";
-import "zlib";
 import "http";
 import "https";
-import "events";
 import "url";
 import "assert";
+import "tty";
 import "net";
+import "zlib";
+import "events";
+import "buffer";
+import "crypto";
+import "os";
 export {
-  h as default
+  f as default
 };
