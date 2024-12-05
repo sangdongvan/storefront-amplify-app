@@ -1,4 +1,4 @@
-import { f } from "./assets/expressjs-handler-B3UPTGQP.js";
+import { f } from "./assets/expressjs-handler-BB7QTGFB.js";
 import "fs";
 import "path";
 import "stream";

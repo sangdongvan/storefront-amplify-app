@@ -1,4 +1,4 @@
-import { a as axios, g as getDefaultExportFromCjs, d as decode, v as verify, s as sign, J as JsonWebTokenError_1, N as NotBeforeError_1, T as TokenExpiredError_1, p as production, b as accessTokenCookie, r as refreshTokenCookie, c as reactExports, e as dist } from "./expressjs-handler-B3UPTGQP.js";
+import { a as axios, g as getDefaultExportFromCjs, d as decode, v as verify, s as sign, J as JsonWebTokenError_1, N as NotBeforeError_1, T as TokenExpiredError_1, p as production, b as accessTokenCookie, r as refreshTokenCookie, c as reactExports, e as dist } from "./expressjs-handler-BB7QTGFB.js";
 import { PassThrough } from "node:stream";
 import stream from "stream";
 import require$$1 from "util";
@@ -15711,7 +15711,7 @@ const route9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   headers,
   loader
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client--K4XpglX.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BGTku7SI.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js", "/assets/with-props-CL8xjY9b.js"], "css": [] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home-CxjFudH7.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/login": { "id": "routes/login", "parentId": "root", "path": "login", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/login-DDbwbo3g.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/layout": { "id": "routes/contacts/layout", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/layout-BvstaCfI.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/list": { "id": "routes/contacts/list", "parentId": "routes/contacts/layout", "path": "contacts", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/list-z8Vb_bDW.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/view": { "id": "routes/contacts/view", "parentId": "routes/contacts/layout", "path": "contacts/:id", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/view-UsEqIIKw.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/edit": { "id": "routes/contacts/edit", "parentId": "routes/contacts/layout", "path": "contacts/:id/edit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": true, "hasClientLoader": true, "hasErrorBoundary": false, "module": "/assets/edit-V7nNNLvn.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/destroy": { "id": "routes/contacts/destroy", "parentId": "routes/contacts/layout", "path": "contacts/:id/destroy", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/destroy-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-access-token.server": { "id": "routes/api/get-access-token.server", "parentId": "root", "path": "api/get-access-token", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-access-token.server-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-app-config.server": { "id": "routes/api/get-app-config.server", "parentId": "root", "path": "api/get-app-config", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-app-config.server-l0sNRNKZ.js", "imports": [], "css": [] } }, "url": "/assets/manifest-afedf313.js", "version": "afedf313" };
+const serverManifest = { "entry": { "module": "/assets/entry.client--K4XpglX.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BGTku7SI.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js", "/assets/with-props-CL8xjY9b.js"], "css": [] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home-CxjFudH7.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/login": { "id": "routes/login", "parentId": "root", "path": "login", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/login-DDbwbo3g.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/layout": { "id": "routes/contacts/layout", "parentId": "root", "path": "contacts", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/layout-BvstaCfI.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/list": { "id": "routes/contacts/list", "parentId": "routes/contacts/layout", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/list-z8Vb_bDW.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/view": { "id": "routes/contacts/view", "parentId": "routes/contacts/layout", "path": ":id", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/view-UsEqIIKw.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/edit": { "id": "routes/contacts/edit", "parentId": "routes/contacts/layout", "path": ":id/edit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": true, "hasClientLoader": true, "hasErrorBoundary": false, "module": "/assets/edit-V7nNNLvn.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/destroy": { "id": "routes/contacts/destroy", "parentId": "routes/contacts/layout", "path": ":id/destroy", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/destroy-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-access-token.server": { "id": "routes/api/get-access-token.server", "parentId": "root", "path": "api/get-access-token", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-access-token.server-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-app-config.server": { "id": "routes/api/get-app-config.server", "parentId": "root", "path": "api/get-app-config", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-app-config.server-l0sNRNKZ.js", "imports": [], "css": [] } }, "url": "/assets/manifest-bd9cfed5.js", "version": "bd9cfed5" };
 const assetsBuildDirectory = "build/client";
 const basename = "/";
 const future = { "unstable_optimizeDeps": false };
@@ -15746,7 +15746,7 @@ const routes = {
   "routes/contacts/layout": {
     id: "routes/contacts/layout",
     parentId: "root",
-    path: void 0,
+    path: "contacts",
     index: void 0,
     caseSensitive: void 0,
     module: route3
@@ -15754,7 +15754,7 @@ const routes = {
   "routes/contacts/list": {
     id: "routes/contacts/list",
     parentId: "routes/contacts/layout",
-    path: "contacts",
+    path: void 0,
     index: true,
     caseSensitive: void 0,
     module: route4
@@ -15762,7 +15762,7 @@ const routes = {
   "routes/contacts/view": {
     id: "routes/contacts/view",
     parentId: "routes/contacts/layout",
-    path: "contacts/:id",
+    path: ":id",
     index: void 0,
     caseSensitive: void 0,
     module: route5
@@ -15770,7 +15770,7 @@ const routes = {
   "routes/contacts/edit": {
     id: "routes/contacts/edit",
     parentId: "routes/contacts/layout",
-    path: "contacts/:id/edit",
+    path: ":id/edit",
     index: void 0,
     caseSensitive: void 0,
     module: route6
@@ -15778,7 +15778,7 @@ const routes = {
   "routes/contacts/destroy": {
     id: "routes/contacts/destroy",
     parentId: "routes/contacts/layout",
-    path: "contacts/:id/destroy",
+    path: ":id/destroy",
     index: void 0,
     caseSensitive: void 0,
     module: route7
