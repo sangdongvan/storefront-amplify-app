@@ -1,4 +1,4 @@
-import { a as axios, g as getDefaultExportFromCjs, d as decode, v as verify, s as sign, J as JsonWebTokenError_1, N as NotBeforeError_1, T as TokenExpiredError_1, p as production, b as accessTokenCookie, r as refreshTokenCookie, c as reactExports, e as dist } from "./expressjs-handler-BB7QTGFB.js";
+import { a as axios, g as getDefaultExportFromCjs, d as decode, v as verify, s as sign, J as JsonWebTokenError_1, N as NotBeforeError_1, T as TokenExpiredError_1, p as production, b as accessTokenCookie, r as refreshTokenCookie, c as reactExports, e as dist } from "./expressjs-handler-qOszhhm2.js";
 import { PassThrough } from "node:stream";
 import stream from "stream";
 import require$$1 from "util";
@@ -15190,7 +15190,7 @@ const route0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: root,
   links
 }, Symbol.toStringTag, { value: "Module" }));
-const headers$2 = {
+const headers$1 = {
   "Cache-Control": "public, max-age=300, s-max-age=3600"
 };
 const home = withComponentProps(function Home() {
@@ -15205,7 +15205,7 @@ const home = withComponentProps(function Home() {
 const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: home,
-  headers: headers$2
+  headers: headers$1
 }, Symbol.toStringTag, { value: "Module" }));
 const action$3 = async ({
   context,
@@ -15225,7 +15225,7 @@ const action$3 = async ({
     headers: [["Set-Cookie", await accessTokenCookie.serialize(accessToken)], ["Set-Cookie", await refreshTokenCookie.serialize(refreshToken)]]
   });
 };
-const headers$1 = {
+const headers = {
   "Cache-Control": "public, max-age=300, s-max-age=3600"
 };
 const loader$4 = async ({
@@ -15280,7 +15280,7 @@ const route2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   action: action$3,
   default: login,
-  headers: headers$1,
+  headers,
   loader: loader$4
 }, Symbol.toStringTag, { value: "Module" }));
 const action$2 = async ({
@@ -15694,9 +15694,6 @@ function isAppContext(obj) {
   const jwksClient = obj.jwksClient;
   return config !== void 0 && api !== void 0 && jwksClient !== void 0;
 }
-const headers = {
-  "Cache-Control": "public, max-age=30, s-max-age=3600"
-};
 const loader = async ({
   context
 }) => {
@@ -15704,11 +15701,14 @@ const loader = async ({
   const config = {
     storefrontApi: context.config.storefrontApi
   };
-  return Response.json(config);
+  return Response.json(config, {
+    headers: {
+      "Cache-Control": "public, max-age=30, s-max-age=3600"
+    }
+  });
 };
 const route9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  headers,
   loader
 }, Symbol.toStringTag, { value: "Module" }));
 const serverManifest = { "entry": { "module": "/assets/entry.client--K4XpglX.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BGTku7SI.js", "imports": ["/assets/chunk-7R3XDUXW-FmQ3R6bm.js", "/assets/with-props-CL8xjY9b.js"], "css": [] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home-CxjFudH7.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/login": { "id": "routes/login", "parentId": "root", "path": "login", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/login-DDbwbo3g.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/layout": { "id": "routes/contacts/layout", "parentId": "root", "path": "contacts", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/layout-BvstaCfI.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/list": { "id": "routes/contacts/list", "parentId": "routes/contacts/layout", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/list-z8Vb_bDW.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/view": { "id": "routes/contacts/view", "parentId": "routes/contacts/layout", "path": ":id", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/view-UsEqIIKw.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/edit": { "id": "routes/contacts/edit", "parentId": "routes/contacts/layout", "path": ":id/edit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": true, "hasClientLoader": true, "hasErrorBoundary": false, "module": "/assets/edit-V7nNNLvn.js", "imports": ["/assets/with-props-CL8xjY9b.js", "/assets/chunk-7R3XDUXW-FmQ3R6bm.js"], "css": [] }, "routes/contacts/destroy": { "id": "routes/contacts/destroy", "parentId": "routes/contacts/layout", "path": ":id/destroy", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/destroy-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-access-token.server": { "id": "routes/api/get-access-token.server", "parentId": "root", "path": "api/get-access-token", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-access-token.server-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/get-app-config.server": { "id": "routes/api/get-app-config.server", "parentId": "root", "path": "api/get-app-config", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/get-app-config.server-l0sNRNKZ.js", "imports": [], "css": [] } }, "url": "/assets/manifest-bd9cfed5.js", "version": "bd9cfed5" };

@@ -43699,7 +43699,7 @@ function getJwksClient(storefrontApi) {
 }
 const expressjsHandler = dist.createRequestHandler({
   // @ts-expect-error - virtual module provided by React Router at build time
-  build: () => import("./server-build-BwXgPbYC.js"),
+  build: () => import("./server-build-x2ZS5r_W.js"),
   getLoadContext(req) {
     const storefrontApi = req.app.get("Config.StorefrontApi");
     return {
