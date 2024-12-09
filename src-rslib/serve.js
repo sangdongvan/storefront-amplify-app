@@ -3,9 +3,9 @@ import express from "express";
 import compression from "compression";
 
 // @ts-ignore
-import { StorefrontApi } from "./config.gen";
+import { StorefrontApi } from "./config.gen.js";
 // @ts-ignore
-import expressjsHandler from "./server";
+import expressjsHandler from "./server/index.js";
 
 // Default port of Amplify hosting
 const port = 3000;

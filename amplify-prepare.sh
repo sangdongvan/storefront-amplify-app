@@ -5,16 +5,16 @@ set -e
 
 echo '⚙ Prepare target dirs'
 rm -rf .amplify-hosting
-mkdir -p .amplify-hosting/compute
 
 echo '⚙ Prepare entrypoint for the default compute'
 rm -rf dist
 # Inject environment variables
-cat src-rslib/config.ts.tpl | envsubst > src-rslib/config.gen.ts
-npx rslib build
+cat src-rslib/config.js.tpl | envsubst > src-rslib/config.gen.js
 
-cp -r dist .amplify-hosting/compute/
-mv .amplify-hosting/compute/dist .amplify-hosting/compute/default
+mkdir -p .amplify-hosting/compute/default
+cp -r src-rslib/server .amplify-hosting/compute/default
+cp src-rslib/config.gen.js .amplify-hosting/compute/default
+cp src-rslib/serve.js .amplify-hosting/compute/default
 
 echo '⚙ Install runtime dependencies'
 # Install runtime node_modules, keep runtime small, only express.js for now.
