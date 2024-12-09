@@ -11,11 +11,11 @@ STOREFRONT_DIR="$SCRIPT_DIR/../../storefront"
 AMPLIFY_APP_DIR="$SCRIPT_DIR/../"
 
 echo "Clear webapp build"
-rm -rf $AMPLIFY_APP_DIR/src-rslib/server || true
-rm -rf $AMPLIFY_APP_DIR/src-amplify/client || true
+rm -rf $AMPLIFY_APP_DIR/src/server || true
+rm -rf $AMPLIFY_APP_DIR/src/client || true
 
 echo "Sync webapp build"
-cp -r $STOREFRONT_DIR/apps/webapp/build/server $AMPLIFY_APP_DIR/src-rslib
-cp -r $STOREFRONT_DIR/apps/webapp/build/client $AMPLIFY_APP_DIR/src-amplify
+cp -r $STOREFRONT_DIR/apps/webapp/build/server $AMPLIFY_APP_DIR/src
+cp -r $STOREFRONT_DIR/apps/webapp/build/client $AMPLIFY_APP_DIR/src
 
 echo "✅ Done"
